@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="de">
+<html lang="de" data-lang="de">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Abbildungsnachweis Kop van Zuid</title>
-<meta name="description" content="Quellen der Pläne und Abbildungen im Handout zur Kop van Zuid, Rotterdam.">
+<meta name="description" content="Quellen der Pläne und Abbildungen im Handout zur Kop van Zuid, Rotterdam. Image credits for the Kop van Zuid handout, Rotterdam.">
 <style>
 :root {
   --bg: #ffffff;
@@ -47,7 +47,15 @@ body {
 }
 .wrap { max-width: 680px; margin: 0 auto; padding: 24px 16px 56px; }
 header { padding-bottom: 8px; }
-.eyebrow { font-size: 13px; color: var(--muted); letter-spacing: .02em; margin: 0 0 6px; }
+.top-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0 0 6px; }
+.eyebrow { font-size: 13px; color: var(--muted); letter-spacing: .02em; margin: 0; }
+.lang { display: inline-flex; border: 1px solid var(--line); border-radius: 22px; overflow: hidden; flex: none; }
+.lang button {
+  min-width: 44px; min-height: 44px; border: 0; background: transparent; color: var(--muted);
+  font: inherit; font-weight: 600; font-size: 14px; cursor: pointer;
+}
+.lang button[aria-pressed="true"] { background: var(--fg); color: var(--bg); }
+button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 h1 { font-size: 28px; line-height: 1.15; margin: 0 0 10px; font-weight: 700; letter-spacing: -.01em; }
 .lead { margin: 0; color: var(--muted); }
 h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 600; margin: 36px 0 12px; padding-top: 14px; border-top: 1px solid var(--line); }
@@ -59,6 +67,7 @@ nav.chips a {
 }
 nav.chips a:active { background: var(--accent); color: #fff; }
 a { color: inherit; }
+.grp { margin: 22px 0 0; font-size: 13px; font-weight: 600; color: var(--muted); }
 .src-list { list-style: none; margin: 0; padding: 0; }
 .src-list li { padding: 12px 0; border-bottom: 1px solid var(--line); }
 .src-list .t { display: block; font-weight: 600; }
@@ -88,17 +97,50 @@ footer p { margin: 0 0 8px; }
 <body>
 <div class="wrap">
   <header>
-    <p class="eyebrow">Handout · Rotterdam</p>
-    <h1>Abbildungsnachweis Kop van Zuid</h1>
-    <p class="lead">Quellen der Pläne, Karten und Bilder im Handout. Die Nummern entsprechen den Gebäuden im Handout. Zu jeder Abbildung führt ein Link zur Quelle.</p>
-    <nav class="chips" aria-label="Nummer wählen">
+    <div class="top-row">
+      <p class="eyebrow">Handout · Rotterdam</p>
+      <div class="lang" role="group" aria-label="Sprache / Language">
+        <button type="button" data-l="de" aria-pressed="true" lang="de">DE</button>
+        <button type="button" data-l="en" aria-pressed="false" lang="en">EN</button>
+      </div>
+    </div>
+    <h1 data-en="Image credits – Kop van Zuid">Abbildungsnachweis Kop van Zuid</h1>
+    <p class="lead" data-en="Sources of the plans, maps and images in the handout. The numbers match the buildings in the handout. Each image links to its source.">Quellen der Pläne, Karten und Bilder im Handout. Die Nummern entsprechen den Gebäuden im Handout. Zu jeder Abbildung führt ein Link zur Quelle.</p>
+    <nav class="chips" id="chips" aria-label="Nummer wählen">
       <a href="#n00">00</a><a href="#n01">01</a><a href="#n02">02</a><a href="#n03">03</a><a href="#n04">04</a><a href="#n05">05</a>
       <a href="#n06">06</a><a href="#n07">07</a><a href="#n08">08</a><a href="#n09">09</a><a href="#n10">10</a><a href="#n11">11</a>
-      <a href="#n12">12</a><a href="#n13">13</a><a href="#n14">14</a><a href="#n15">15</a><a href="#n16">16</a><a href="#karten">Karten</a>
+      <a href="#n12">12</a><a href="#n13">13</a><a href="#n14">14</a><a href="#n15">15</a><a href="#n16">16</a><a href="#karten" data-en="Maps">Karten</a>
     </nav>
   </header>
 
-  <h2 id="text">Text und Information</h2>
+  <h2 id="text" data-en="Text and information">Text und Information</h2>
+  <p class="grp" data-en="Books">Bücher</p>
+  <ul class="src-list">
+    <li>
+      <span class="t">Rotterdam. Architectural Guide</span>
+      <span class="d" data-en="Anneke Bokern, DOM publishers, 2nd edition">Anneke Bokern, DOM publishers, 2. Auflage</span>
+      <a class="link" href="https://dom-publishers.com/de/products/rotterdam" target="_blank" rel="noopener noreferrer">dom-publishers.com</a>
+    </li>
+    <li>
+      <span class="t">Architectuurgids Rotterdam / Architectural Guide to Rotterdam</span>
+      <span class="d">Paul Groenendijk, Piet Vollaard, nai010, 2007</span>
+      <a class="link" href="https://www.nai010.com/en/product/architectuurgids-rotterdam-architectural-guide-to-rotterdam/" target="_blank" rel="noopener noreferrer">nai010.com</a>
+    </li>
+  </ul>
+  <p class="grp" data-en="Articles">Artikel</p>
+  <ul class="src-list">
+    <li>
+      <span class="t">„De Rotterdam“ – Vertikale Stadt</span>
+      <span class="d">Michael Koller, DBZ Deutsche BauZeitschrift, 11/2013</span>
+      <a class="link" href="https://www.dbz.de/artikel/dbz_Vertikale_Stadt_De_Rotterdam_Rotterdam_NL-1823975.html" target="_blank" rel="noopener noreferrer">dbz.de</a>
+    </li>
+    <li>
+      <span class="t">„Manhattan an der Maas“</span>
+      <span class="d" data-en="Robert Uhde, for the NZZ, 2000">Robert Uhde, für die NZZ, 2000</span>
+      <a class="link" href="https://www.robert-uhde.de/item/manhattan-an-der-maas/" target="_blank" rel="noopener noreferrer">robert-uhde.de</a>
+    </li>
+  </ul>
+  <p class="grp" data-en="Archives, project pages and documents">Archiv, Projektseiten und Dokumente</p>
   <ul class="src-list">
     <li>
       <span class="t">Herontwikkeling Kop van Zuid</span>
@@ -110,208 +152,244 @@ footer p { margin: 0 0 8px; }
       <span class="d">Michael Van Valkenburgh Associates</span>
       <a class="link" href="https://mvvainc.com/projects/rijnhavenpark" target="_blank" rel="noopener noreferrer">mvvainc.com</a>
     </li>
+    <li>
+      <span class="t">Rotterdams Hafenstadt im Wandel – Dynamik des Hafenareals Kop van Zuid</span>
+      <span class="d" data-en="Hans Stam, document on Scribd">Hans Stam, Dokument auf Scribd</span>
+      <a class="link" href="https://de.scribd.com/document/944571957/Rotterdam-Kop-Van-Zuid" target="_blank" rel="noopener noreferrer">de.scribd.com</a>
+    </li>
   </ul>
 
-  <h2 id="abbildungen">Abbildungen</h2>
+  <h2 id="abbildungen" data-en="Images">Abbildungen</h2>
   <div class="box">
-    <p><strong>Gebäudeansichten:</strong> Pixelgrafiken, eigene Darstellung nach Fotografien.</p>
-    <p><strong>Pläne:</strong> Urheber sind die genannten Büros; der Link führt zur Projektseite oder zum Archiv.</p>
+    <p><strong data-en="Building views:">Gebäudeansichten:</strong> <span data-en="pixel graphics, own illustration based on photographs.">Pixelgrafiken, eigene Darstellung nach Fotografien.</span></p>
+    <p><strong data-en="Plans:">Pläne:</strong> <span data-en="the architects named are the authors; the link leads to the project page or archive.">Urheber sind die genannten Büros; der Link führt zur Projektseite oder zum Archiv.</span></p>
   </div>
 
   <article id="n00">
     <h3><span class="nr">00</span>Kop van Zuid</h3>
     <div class="row">
-      <span class="typ">Programmplan</span>
+      <span class="typ" data-en="Programme plan">Programmplan</span>
       <span class="who">Stadsarchief Rotterdam</span>
-      <span class="note">Collectie 4006, Nr. XXIX-1992-0039, farblich bearbeitet</span>
+      <span class="note" data-en="Collection 4006, no. XXIX-1992-0039, recoloured">Collectie 4006, Nr. XXIX-1992-0039, farblich bearbeitet</span>
       <div class="links"><a class="link" href="https://stadsarchief.rotterdam.nl/herontwikkeling-kop-van-zuid" target="_blank" rel="noopener noreferrer">Stadsarchief Rotterdam</a></div>
     </div>
   </article>
 
   <article id="n01">
-    <h3><span class="nr">01</span>Erasmusbrücke</h3>
+    <h3><span class="nr">01</span><span data-en="Erasmus Bridge">Erasmusbrücke</span></h3>
     <div class="row">
-      <span class="typ">Zeichnungen (Schnitt und Ansichten)</span>
+      <span class="typ" data-en="Drawings (section and elevations)">Zeichnungen (Schnitt und Ansichten)</span>
       <span class="who">UNStudio, Ben van Berkel</span>
-      <span class="note">Archiv: Canadian Centre for Architecture, Montréal</span>
-      <div class="links"><a class="link" href="https://www.cca.qc.ca/en/archives/440020/unstudio-erasmus-bridge-project-records/503717/erasmus-bridge-rotterdam-netherlands-1990-1996" target="_blank" rel="noopener noreferrer">CCA-Archiv</a></div>
+      <span class="note" data-en="Archive: Canadian Centre for Architecture, Montréal">Archiv: Canadian Centre for Architecture, Montréal</span>
+      <div class="links"><a class="link" href="https://www.cca.qc.ca/en/archives/440020/unstudio-erasmus-bridge-project-records/503717/erasmus-bridge-rotterdam-netherlands-1990-1996" target="_blank" rel="noopener noreferrer" data-en="CCA archive">CCA-Archiv</a></div>
     </div>
-    <div class="row own"><span class="typ">Ansicht</span><span class="who">Eigene Darstellung (Pixelgrafik)</span></div>
+    <div class="row own"><span class="typ" data-en="Elevation">Ansicht</span><span class="who" data-en="Own illustration (pixel graphic)">Eigene Darstellung (Pixelgrafik)</span></div>
   </article>
 
   <article id="n02">
     <h3><span class="nr">02</span>Nieuwe Luxor Theater</h3>
     <div class="row">
-      <span class="typ">Grundriss</span>
+      <span class="typ" data-en="Floor plan">Grundriss</span>
       <span class="who">Bolles+Wilson</span>
       <div class="links"><a class="link" href="https://bolles-wilson.com/?p=299" target="_blank" rel="noopener noreferrer">bolles-wilson.com</a></div>
     </div>
-    <div class="row own"><span class="typ">Ansicht</span><span class="who">Eigene Darstellung (Pixelgrafik)</span></div>
+    <div class="row own"><span class="typ" data-en="Elevation">Ansicht</span><span class="who" data-en="Own illustration (pixel graphic)">Eigene Darstellung (Pixelgrafik)</span></div>
   </article>
 
   <article id="n03">
     <h3><span class="nr">03</span>De Rotterdam</h3>
     <div class="row">
-      <span class="typ">Grundriss</span>
+      <span class="typ" data-en="Floor plan">Grundriss</span>
       <span class="who">OMA</span>
-      <span class="note">Planset bei Divisare, Credit OMA</span>
+      <span class="note" data-en="Plan set on Divisare, credited to OMA">Planset bei Divisare, Credit OMA</span>
       <div class="links"><a class="link" href="https://divisare.com/projects/244831-oma-michael-moser-inigo-bujedo-aguirre-ossip-van-duivenbode-philippe-ruault-de-rotterdam" target="_blank" rel="noopener noreferrer">divisare.com</a></div>
     </div>
-    <div class="row own"><span class="typ">Ansicht</span><span class="who">Eigene Darstellung (Pixelgrafik)</span></div>
+    <div class="row own"><span class="typ" data-en="Elevation">Ansicht</span><span class="who" data-en="Own illustration (pixel graphic)">Eigene Darstellung (Pixelgrafik)</span></div>
   </article>
 
   <article id="n04">
     <h3><span class="nr">04</span>Floating Office</h3>
     <div class="row">
-      <span class="typ">Grundriss Erdgeschoss</span>
+      <span class="typ" data-en="Ground floor plan">Grundriss Erdgeschoss</span>
       <span class="who">Powerhouse Company</span>
       <div class="links"><a class="link" href="https://www.powerhouse-company.com/floating-office-rotterdam" target="_blank" rel="noopener noreferrer">powerhouse-company.com</a></div>
     </div>
-    <div class="row own"><span class="typ">Ansicht</span><span class="who">Eigene Darstellung (Pixelgrafik)</span></div>
+    <div class="row own"><span class="typ" data-en="Elevation">Ansicht</span><span class="who" data-en="Own illustration (pixel graphic)">Eigene Darstellung (Pixelgrafik)</span></div>
   </article>
 
   <article id="n05">
     <h3><span class="nr">05</span>New Orleans</h3>
     <div class="row">
-      <span class="typ">Dachgartenplan</span>
+      <span class="typ" data-en="Roof garden plan">Dachgartenplan</span>
       <span class="who">Álvaro Siza, ADP architecten</span>
-      <span class="note">Archiv: Canadian Centre for Architecture, Montréal (Siza-Fonds, New Orleans, Plot UG-8)</span>
-      <div class="links"><a class="link" href="https://www.cca.qc.ca/fr/archives/447183/alvaro-siza-fonds/469692/architectural-projects/494680/new-orleans-plot-ug-8-rotterdam-the-netherlands-2002" target="_blank" rel="noopener noreferrer">CCA-Archiv</a></div>
+      <span class="note" data-en="Archive: Canadian Centre for Architecture, Montréal (Siza fonds, New Orleans, Plot UG-8)">Archiv: Canadian Centre for Architecture, Montréal (Siza-Fonds, New Orleans, Plot UG-8)</span>
+      <div class="links"><a class="link" href="https://www.cca.qc.ca/fr/archives/447183/alvaro-siza-fonds/469692/architectural-projects/494680/new-orleans-plot-ug-8-rotterdam-the-netherlands-2002" target="_blank" rel="noopener noreferrer" data-en="CCA archive">CCA-Archiv</a></div>
     </div>
-    <div class="row own"><span class="typ">Ansicht</span><span class="who">Eigene Darstellung (Pixelgrafik)</span></div>
+    <div class="row own"><span class="typ" data-en="Elevation">Ansicht</span><span class="who" data-en="Own illustration (pixel graphic)">Eigene Darstellung (Pixelgrafik)</span></div>
   </article>
 
   <article id="n06">
     <h3><span class="nr">06</span>Montevideo</h3>
     <div class="row">
-      <span class="typ">Grundrisse</span>
+      <span class="typ" data-en="Floor plans">Grundrisse</span>
       <span class="who">Mecanoo</span>
       <div class="links"><a class="link" href="https://mecanoo.nl/Projects/project/33/Montevideo-Residential-Tower" target="_blank" rel="noopener noreferrer">mecanoo.nl</a></div>
     </div>
-    <div class="row own"><span class="typ">Ansicht</span><span class="who">Eigene Darstellung (Pixelgrafik)</span></div>
+    <div class="row own"><span class="typ" data-en="Elevation">Ansicht</span><span class="who" data-en="Own illustration (pixel graphic)">Eigene Darstellung (Pixelgrafik)</span></div>
   </article>
 
   <article id="n07">
     <h3><span class="nr">07</span>Las Palmas</h3>
     <div class="row">
-      <span class="typ">Plan Penthouse (Ebene 07, 1:400)</span>
+      <span class="typ" data-en="Penthouse plan (level 07, 1:400)">Plan Penthouse (Ebene 07, 1:400)</span>
       <span class="who">Benthem Crouwel Architects</span>
       <div class="links"><a class="link" href="https://www.benthemcrouwel.com/projects/dutch-photo-museum-amsterdam-las-palmas" target="_blank" rel="noopener noreferrer">benthemcrouwel.com</a></div>
     </div>
-    <div class="row own"><span class="typ">Ansicht</span><span class="who">Eigene Darstellung (Pixelgrafik)</span></div>
+    <div class="row own"><span class="typ" data-en="Elevation">Ansicht</span><span class="who" data-en="Own illustration (pixel graphic)">Eigene Darstellung (Pixelgrafik)</span></div>
   </article>
 
   <article id="n08">
-    <h3><span class="nr">08</span>Kreuzfahrtterminal</h3>
+    <h3><span class="nr">08</span><span data-en="Cruise Terminal">Kreuzfahrtterminal</span></h3>
     <div class="row">
-      <span class="typ">Grundriss</span>
-      <span class="who">TomDavid Architects (Umbau)</span>
-      <span class="note">Projektseite bei Divisare</span>
+      <span class="typ" data-en="Floor plan">Grundriss</span>
+      <span class="who" data-en="TomDavid Architects (conversion)">TomDavid Architects (Umbau)</span>
+      <span class="note" data-en="Project page on Divisare">Projektseite bei Divisare</span>
       <div class="links"><a class="link" href="https://divisare.com/projects/317211-tomdavid-architecten-ossip-van-duivenbode-cruise-terminal-rotterdam-h-a-l" target="_blank" rel="noopener noreferrer">divisare.com</a></div>
     </div>
-    <div class="row own"><span class="typ">Ansicht</span><span class="who">Eigene Darstellung (Pixelgrafik)</span></div>
+    <div class="row own"><span class="typ" data-en="Elevation">Ansicht</span><span class="who" data-en="Own illustration (pixel graphic)">Eigene Darstellung (Pixelgrafik)</span></div>
   </article>
 
   <article id="n09">
     <h3><span class="nr">09</span>World Port Center</h3>
     <div class="row">
-      <span class="typ">Grundriss</span>
+      <span class="typ" data-en="Floor plan">Grundriss</span>
       <span class="who">Foster + Partners</span>
       <div class="links"><a class="link" href="https://www.fosterandpartners.com/projects/world-port-centre" target="_blank" rel="noopener noreferrer">fosterandpartners.com</a></div>
     </div>
-    <div class="row own"><span class="typ">Ansicht</span><span class="who">Eigene Darstellung (Pixelgrafik)</span></div>
+    <div class="row own"><span class="typ" data-en="Elevation">Ansicht</span><span class="who" data-en="Own illustration (pixel graphic)">Eigene Darstellung (Pixelgrafik)</span></div>
   </article>
 
   <article id="n10">
-    <h3><span class="nr">10</span>Der Sprung nach Zuid · Hotel New York</h3>
+    <h3><span class="nr">10</span><span data-en="The Leap to Zuid · Hotel New York">Der Sprung nach Zuid · Hotel New York</span></h3>
     <div class="row">
-      <span class="typ">Historische Karte</span>
+      <span class="typ" data-en="Historic map">Historische Karte</span>
       <span class="who">H. A. van IJsselsteijn, „Der Hafen von Rotterdam“ (1908)</span>
-      <span class="note">Ausklappkarte, gemeinfrei, bearbeitet</span>
+      <span class="note" data-en="Fold-out map, public domain, edited">Ausklappkarte, gemeinfrei, bearbeitet</span>
     </div>
-    <div class="row own"><span class="typ">Illustration Hotel New York</span><span class="who">Eigene Darstellung nach Fotografie</span></div>
+    <div class="row own"><span class="typ" data-en="Illustration of Hotel New York">Illustration Hotel New York</span><span class="who" data-en="Own illustration based on a photograph">Eigene Darstellung nach Fotografie</span></div>
   </article>
 
   <article id="n11">
     <h3><span class="nr">11</span>Rijnhavenbrug</h3>
     <div class="row">
-      <span class="typ">Grundriss (Lageplan 1:500)</span>
+      <span class="typ" data-en="Floor plan (site plan 1:500)">Grundriss (Lageplan 1:500)</span>
       <span class="who">Quist Wintermans Architekten</span>
       <div class="links"><a class="link" href="https://www.qwa.nl/projecten/rijnhavenbrug-rotterdam/" target="_blank" rel="noopener noreferrer">qwa.nl</a></div>
     </div>
-    <div class="row own"><span class="typ">Ansicht</span><span class="who">Eigene Darstellung (Pixelgrafik)</span></div>
+    <div class="row own"><span class="typ" data-en="Elevation">Ansicht</span><span class="who" data-en="Own illustration (pixel graphic)">Eigene Darstellung (Pixelgrafik)</span></div>
   </article>
 
   <article id="n12">
     <h3><span class="nr">12</span>Fenix Lofts</h3>
     <div class="row">
-      <span class="typ">Grundriss Erdgeschoss</span>
+      <span class="typ" data-en="Ground floor plan">Grundriss Erdgeschoss</span>
       <span class="who">Mei architects and planners</span>
-      <span class="note">Projektblatt Fenix I, Einreichung BNA „Gebouw van het Jaar 2020“ (PDF)</span>
+      <span class="note" data-en="Fenix I project sheet, submission for BNA “Gebouw van het Jaar 2020” (PDF)">Projektblatt Fenix I, Einreichung BNA „Gebouw van het Jaar 2020“ (PDF)</span>
       <div class="links"><a class="link" href="https://bna.nl/wp-content/uploads/2025/06/Fenix-I-Mei-architects.pdf" target="_blank" rel="noopener noreferrer">bna.nl</a></div>
     </div>
-    <div class="row own"><span class="typ">Ansicht</span><span class="who">Eigene Darstellung (Pixelgrafik)</span></div>
+    <div class="row own"><span class="typ" data-en="Elevation">Ansicht</span><span class="who" data-en="Own illustration (pixel graphic)">Eigene Darstellung (Pixelgrafik)</span></div>
   </article>
 
   <article id="n13">
     <h3><span class="nr">13</span>Fenix Museum</h3>
     <div class="row">
-      <span class="typ">Grundriss</span>
+      <span class="typ" data-en="Floor plan">Grundriss</span>
       <span class="who">MAD Architects</span>
       <div class="links"><a class="link" href="https://www.i-mad.com/projects/fenix" target="_blank" rel="noopener noreferrer">i-mad.com</a></div>
     </div>
-    <div class="row own"><span class="typ">Ansicht</span><span class="who">Eigene Darstellung (Pixelgrafik)</span></div>
+    <div class="row own"><span class="typ" data-en="Elevation">Ansicht</span><span class="who" data-en="Own illustration (pixel graphic)">Eigene Darstellung (Pixelgrafik)</span></div>
   </article>
 
   <article id="n14">
     <h3><span class="nr">14</span>De Groene Kaap</h3>
     <div class="row">
-      <span class="typ">Dachplan</span>
+      <span class="typ" data-en="Roof plan">Dachplan</span>
       <span class="who">LOLA Landscape Architects</span>
-      <span class="note">in Zusammenarbeit mit Bureau Massa</span>
+      <span class="note" data-en="in collaboration with Bureau Massa">in Zusammenarbeit mit Bureau Massa</span>
       <div class="links">
         <a class="link" href="https://lola.land/project/de-groene-kaap/" target="_blank" rel="noopener noreferrer">lola.land</a>
         <a class="link" href="https://bureaumassa.nl/project/de-groene-kaap" target="_blank" rel="noopener noreferrer">bureaumassa.nl</a>
       </div>
     </div>
-    <div class="row own"><span class="typ">Ansicht</span><span class="who">Eigene Darstellung (Pixelgrafik)</span></div>
+    <div class="row own"><span class="typ" data-en="Elevation">Ansicht</span><span class="who" data-en="Own illustration (pixel graphic)">Eigene Darstellung (Pixelgrafik)</span></div>
   </article>
 
   <article id="n15">
     <h3><span class="nr">15</span>Nederlands Fotomuseum</h3>
     <div class="row">
-      <span class="typ">Grundriss 6. Obergeschoss</span>
+      <span class="typ" data-en="Floor plan, 6th floor">Grundriss 6. Obergeschoss</span>
       <span class="who">WDJARCHITECTEN, Renner Hainke Wirth Zirn Architekten</span>
-      <span class="note">Pressebereich des Nederlands Fotomuseum</span>
+      <span class="note" data-en="Press area of the Nederlands Fotomuseum">Pressebereich des Nederlands Fotomuseum</span>
       <div class="links"><a class="link" href="https://pers.nederlandsfotomuseum.nl/en/tags/pakhuis-santos/" target="_blank" rel="noopener noreferrer">pers.nederlandsfotomuseum.nl</a></div>
     </div>
-    <div class="row own"><span class="typ">Ansicht</span><span class="who">Eigene Darstellung (Pixelgrafik)</span></div>
+    <div class="row own"><span class="typ" data-en="Elevation">Ansicht</span><span class="who" data-en="Own illustration (pixel graphic)">Eigene Darstellung (Pixelgrafik)</span></div>
   </article>
 
   <article id="n16">
     <h3><span class="nr">16</span>Rijnhavenpark</h3>
     <div class="row">
-      <span class="typ">Lageplan und Visualisierung</span>
+      <span class="typ" data-en="Site plan and visualisation">Lageplan und Visualisierung</span>
       <span class="who">Michael Van Valkenburgh Associates (MVVA)</span>
       <div class="links"><a class="link" href="https://mvvainc.com/projects/rijnhavenpark" target="_blank" rel="noopener noreferrer">mvvainc.com</a></div>
     </div>
   </article>
 
   <article id="karten">
-    <h3>Karten</h3>
+    <h3 data-en="Maps">Karten</h3>
     <div class="row">
-      <span class="typ">Schwarzpläne und Karten im Handout</span>
-      <span class="who">Eigene Darstellung</span>
-      <span class="note">Daten © OpenStreetMap-Mitwirkende</span>
+      <span class="typ" data-en="Figure-ground plans and maps in the handout">Schwarzpläne und Karten im Handout</span>
+      <span class="who" data-en="Own illustration">Eigene Darstellung</span>
+      <span class="note" data-en="Data © OpenStreetMap contributors">Daten © OpenStreetMap-Mitwirkende</span>
       <div class="links"><a class="link" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">openstreetmap.org/copyright</a></div>
     </div>
   </article>
 
   <footer>
     <p style="color:var(--fg)"><strong>Jérôme R. Gilbert und Philipp A. Tomschin</strong><br>WPM: Waterfront in motion</p>
-    <p>Stand: Oktober 2026. Alle Rechte an Plänen und Fotos liegen bei den genannten Urheberinnen und Urhebern.</p>
-    <a class="top" href="#">Nach oben</a>
+    <p data-en="As of October 2026. All rights to plans and photos remain with the authors named.">Stand: Oktober 2026. Alle Rechte an Plänen und Fotos liegen bei den genannten Urheberinnen und Urhebern.</p>
+    <a class="top" href="#" data-en="Back to top">Nach oben</a>
   </footer>
 </div>
+<script>
+(function () {
+  var root = document.documentElement;
+  var nodes = document.querySelectorAll('[data-en]');
+  var buttons = document.querySelectorAll('.lang button');
+  var chips = document.getElementById('chips');
+  var meta = { de: { title: document.title, aria: 'Nummer wählen' }, en: { title: 'Image credits – Kop van Zuid', aria: 'Choose a number' } };
+  var i;
+  for (i = 0; i < nodes.length; i++) nodes[i].setAttribute('data-de', nodes[i].innerHTML);
+
+  function setLang(lang, save) {
+    for (var n = 0; n < nodes.length; n++) nodes[n].innerHTML = nodes[n].getAttribute(lang === 'en' ? 'data-en' : 'data-de');
+    root.lang = lang;
+    root.setAttribute('data-lang', lang);
+    document.title = meta[lang].title;
+    chips.setAttribute('aria-label', meta[lang].aria);
+    for (var b = 0; b < buttons.length; b++) buttons[b].setAttribute('aria-pressed', buttons[b].getAttribute('data-l') === lang ? 'true' : 'false');
+    if (save) { try { localStorage.setItem('nlq-lang', lang); } catch (e) {} }
+  }
+
+  var stored = null;
+  try { stored = localStorage.getItem('nlq-lang'); } catch (e) {}
+  var nav = (navigator.language || 'de').toLowerCase();
+  var start = (stored === 'de' || stored === 'en') ? stored : (nav.indexOf('de') === 0 ? 'de' : 'en');
+  if (start === 'en') setLang('en', false);
+
+  for (i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', function () { setLang(this.getAttribute('data-l'), true); });
+  }
+})();
+</script>
 </body>
 </html>
