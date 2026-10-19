@@ -116,6 +116,13 @@ h1 { animation: intro-up .7s cubic-bezier(.2, .8, .2, 1) .08s both; }
 nav.chips a { animation: intro-chip .55s cubic-bezier(.2, 1.4, .4, 1) both; animation-delay: calc(.32s + var(--i, 0) * 32ms); }
 @media (prefers-reduced-motion: reduce) { .eyebrow, .lang, h1, .lead, nav.chips a { animation: none; } }
 .credits { font-size: 11px; letter-spacing: .04em; margin: 4px 0 0; text-align: right; }
+.top { position: relative; display: flex; justify-content: center; width: 44px; margin: 0 auto; color: var(--accent); }
+.top::before {
+  --up: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 16.5V4M4.5 9.5L10 4l5.5 5.5' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  content: ""; flex: none; width: 16px; height: 16px; background: currentColor;
+  -webkit-mask: var(--up) center / contain no-repeat; mask: var(--up) center / contain no-repeat;
+}
+.sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 </style>
 </head>
 <body>
@@ -382,7 +389,7 @@ nav.chips a { animation: intro-chip .55s cubic-bezier(.2, 1.4, .4, 1) both; anim
   <footer>
     <p style="color:var(--fg)"><strong>Jérôme R. Gilbert und Philipp A. Tomschin</strong><br>WPM: Waterfront in motion</p>
     <p data-en="As of October 2026. All rights to plans and photos remain with the authors named.">Stand: Oktober 2026. Alle Rechte an Plänen und Fotos liegen bei den genannten Urheberinnen und Urhebern.</p>
-    <a class="top" href="#" data-en="Back to top">Nach oben</a>
+    <a class="top" href="#"><span class="sr" data-en="Back to top">Nach oben</span></a>
     <p class="credits">© JVU · JES</p>
   </footer>
 </div>
